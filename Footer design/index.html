@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Footer Design</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+
+        .footer {
+            border: 2px solid black;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 140px;
+            color: aliceblue;
+            background-color: black;
+        }
+
+        .icons {
+            display: flex;
+            /* border: 2px solid white; */
+            gap: 10px;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        li {
+            color: grey;
+            cursor: pointer;
+            transition: 0.3s ease, 0.3s ease;
+        }
+
+        li:hover {
+            padding-left: 10px;
+            color: aliceblue;
+        }
+
+        img {
+            background-color: white;
+            height: 30px;
+            width: 30px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s ease, 0.3s ease;
+        }
+
+        img:hover {
+            background-color: grey;
+            transform: scale(1.2);
+        }
+
+        .line {
+            border: 2px solid red;
+            width: 50px;
+            border-radius: 20px;
+        }
+
+        .headings {
+            padding: 10px;
+        }
+
+        #gaping {
+            /* border: 2px solid white; */
+            display: flex;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="footer">
+        <div class="headings">
+            <h3>Company
+                <div class="line"></div>
+                <ul>
+
+                    <li>About Us</li>
+                    <li>Our Services</li>
+                    <li>Privacy policy</li>
+                    <li>Affliate Program</li>
+                </ul>
+            </h3>
+        </div>
+        <div class="headings">
+            <h3>Get help
+                <div class="line"></div>
+                <ul>
+                    <li>FAQ</li>
+                    <li>Shipping</li>
+                    <li>Returns</li>
+                    <li>Order Status</li>
+                </ul>
+            </h3>
+        </div>
+        <div class="headings">
+            <h3>Contact
+                <div class="line"></div>
+                <ul>
+                    <li>Watch</li>
+                    <li>Bag</li>
+                    <li>Shoes</li>
+                    <li>Dress</li>
+
+                </ul>
+            </h3>
+        </div>
+        <div class="headings" id="gaping">
+            <h3>Follow Us
+                <div class="line"></div>
+                <div class="icons" style="padding-top: 10px;">
+                    <a href="https://www.facebook.com/"><img src="facebook.png" alt=""></a>
+                    <a href="https://x.com/home?lang=en"><img src="twitter.png" alt=""></a>
+                    <a href="https://www.instagram.com/"><img src="instagram.png" alt=""></a>
+                    <a href="https://www.linkedin.com/feed/"><img src="linkedin.png" alt=""></a>
+                </div>
+            </h3>
+        </div>
+    </div>
+</body>
+
+</html>
