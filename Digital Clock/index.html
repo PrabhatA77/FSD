@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clock</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        background-color: black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    .clock{
+        border: 2px solid white;
+        box-shadow: 0 0 10px #00ff00,0 0 10px #00ff00,0 0 30px #00ff00;
+        border-radius: 10px;
+        height: 80px;
+        width: 350px;
+        color: aliceblue;
+        /* border: 2px solid red; */
+        color: white;
+        text-shadow:0 0 10px #00ff00,0 0 20px #00ff00,0 0 30px #00ff00;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 50px;
+    }
+</style>
+<body>
+    <div class="clock" id="t">
+        clock
+    </div>
+</body>
+<script>
+   
+
+    function reapeatedFunction ()  {
+        const time = new Date();
+    const ti = time.toLocaleTimeString();
+    document.getElementById("t").innerHTML = ti;
+    }
+    setInterval(reapeatedFunction,1000);
+</script>
+</html>
