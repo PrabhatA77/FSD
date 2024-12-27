@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random gradient generator</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: linear-gradient(to right,#000000,#FFFF00 );
+        /* background-color:  #327564; */
+    }
+    .container{
+        /* border: 2px solid black; */
+        height: 200px;
+        display: grid;
+        row-gap: 50px;
+    }
+    .buttons{
+        /* border: 2px solid red; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 120px;
+        height: 75px;
+
+    }
+    .text{
+        font-size: 26px;
+        /* border: 2px solid blue; */
+        display: flex;
+        height: 75px;
+        width: 700px;
+        justify-content: center;
+        align-items: center;
+        border-radius: 20px;
+        background-color: rgba(0, 0, 0, 0);
+        
+    }
+    .button1{
+        font-size: 16px;
+        height: 55px;
+        width: 130px;
+        border-radius: 50px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.1);
+        opacity: 0.7;
+        cursor: pointer;
+        transition:  background-color 0.3s ease,transform 0.3s ease;
+    }
+    .button1:hover{
+        background-color: rgba(0, 0, 0, 0);
+        transform: scale(1.05);
+    }
+    .button2{
+        font-size: 16px;
+        height: 55px;
+        width: 130px;
+        border-radius: 50px;
+        border: none;
+        background-color: rgba(0, 0, 0, 0.1);
+        opacity: 0.7;
+        cursor: pointer;
+        transition:  background-color 0.3s ease,transform 0.3s ease;
+    }
+    .button2:hover{
+        background-color: rgba(0, 0, 0, 0);
+        transform: scale(1.05);
+    }
+
+</style>
+<body>
+    <div class="container">
+        <div class="buttons">
+            <button class="button1" id="btn1" onclick="lefthexcolor()"><b>
+                LEFT SIDE COLOR
+            </b>
+            </button>
+            <button class="button2" id="btn2" onclick="righthexcolor()"><b>
+                RIGTH SIDE COLOR
+            </b>
+            </button>
+        </div>
+        <div class="text" id="cancopycode">
+             linear-gradient(to right ,#00000f,#ffffff) 
+        </div>
+    </div>
+</body>
+<script>
+    var hexcode1 = "#FFFF00" ,hexcode2 = "#000000" 
+    const lefthexcolor = () => {
+        var hexarr = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+    var result = "";
+    for(let i=0;i<6;i++){
+    let text = Math.floor(Math.random()*16);
+    result+=hexarr[text];
+    }
+    hexcode1 = "#"+(result);
+    document.getElementById("btn1").innerHTML =  hexcode1;
+    document.getElementById("btn1").style.backgroundColor =  hexcode1;
+    //  return hexcode1;
+    updateGradient();
+}
+    const righthexcolor = () => {
+        var hexarr = ["0","1","2","3","4","5","6","7","8","9","a","b","c","d","e","f"];
+    var result = "";
+    for(let i=0;i<6;i++){
+    let text = Math.floor(Math.random()*16);
+    result+=hexarr[text];
+    }
+     hexcode2 = "#"+(result);
+    document.getElementById("btn2").innerHTML = hexcode2;
+    document.getElementById("btn2").style.backgroundColor = hexcode2;
+    //  return hexcode2;
+    updateGradient();
+    
+    }
+
+    // const hcode1 = lefthexcolor();
+    // const hcode2 = righthexcolor();
+
+    // console.log(hcode1);
+    // console.log(hcode2);
+
+    //  document.body.style.background = `linear-gradient(to right , ${hexcode1},${hexcode2})`;
+
+    // document.getElementById("cancopycode").innerHTML = `linear-gradient(to right , ${hexcode1},${hexcode2})`;
+
+
+    const updateGradient = () => {
+            document.body.style.background = `linear-gradient(to right, ${hexcode1}, ${hexcode2})`;  
+            document.getElementById("cancopycode").innerHTML = `linear-gradient(to right, ${hexcode1}, ${hexcode2})`;  
+        }
+
+        
+        updateGradient();
+     
+</script>
+</html>
