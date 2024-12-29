@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            border: 2px solid black;
+            height: 600px;
+            width: 500px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+            gap: 10px;
+            background-color: black;
+        }
+
+        .display {
+            border: 2px solid black;
+            height: 100px;
+            width: 490px;
+            background-color: white;
+            font-size: 70px;
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: flex-end;
+        }
+        .keys {
+            border: 2px solid black;
+            width: 490px;
+            height: 480px;
+            display: grid;
+            grid-template-rows: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+        }
+
+        .grid-items {
+            background-color: orange;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 40px;
+            transition: transform 1s ease-out;
+        }
+        .grid-items:hover{
+            cursor: pointer;
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="display" id="display">0</div>
+        <div class="keys">
+            <button class="grid-items" id="allClear" onclick="allClear()">AC</button>
+            <button class="grid-items" id="backspace" onclick="del()">
+                <img src="backspace.png" alt="backspace" style="height: 70px;width: 70px;">
+            </button>
+            <button class="grid-items" id="percentage" onclick="percentage()">%</button>
+            <button class="grid-items" id="divide" onclick="divide()">/</button>
+            <button class="grid-items" style="background-color: white;" onclick="seven()">7</button>
+            <button class="grid-items" style="background-color: white;" onclick="eight()">8</button>
+            <button class="grid-items" style="background-color: white;" onclick="nine()">9</button>
+            <button class="grid-items" id="mul" onclick="mul()">
+                <img src="cross.png" alt="" style="height: 35px;width: 35px;">
+            </button>
+            <button class="grid-items" style="background-color: white;" onclick="four()">4</button>
+            <button class="grid-items" style="background-color: white;" onclick="five()">5</button>
+            <button class="grid-items" style="background-color: white;" onclick="six()">6</button>
+            <button class="grid-items" id="sub" onclick="sub()">
+                <img src="minus.png" alt="" style="height: 35px;width: 35px;">
+            </button>
+            <button class="grid-items" style="background-color: white;" onclick="one()">1</button>
+            <button class="grid-items" style="background-color: white;" onclick="two()">2</button>
+            <button class="grid-items" style="background-color: white;" onclick="three()">3</button>
+            <button class="grid-items" id="add" onclick="add()">
+                <img src="plus.png" alt="" style="height: 35px;width: 35px;">
+            </button>
+            <button class="grid-items" style="background-color: white;" onclick="zero()">0</button>
+            <button class="grid-items" style="background-color: white;" onclick="zeroZero">00</button>
+            <button class="grid-items" style="background-color: white;" onclick="dot()">
+                <img src="dot.png" alt="" style="height: 35px;width: 35px;">
+            </button>
+            <button class="grid-items" id="equalTo" onclick="result()">
+                <img src="equal.png" alt="" style="height: 35px;width: 35px;">
+            </button>
+        </div>
+    </div>
+</body>
+<script>
+    let display = document.getElementById("display");
+
+function appendToDisplay(value) {
+    if (display.innerHTML === "0") {
+        display.innerHTML = value;
+    } else {
+        display.innerHTML += value;
+    }
+}
+
+function allClear() {
+    display.innerHTML = "0";
+}
+
+function del() {
+    display.innerHTML = display.innerHTML.slice(0, -1) || "0";
+}
+
+function result() {
+    try {
+        display.innerHTML = eval(display.innerHTML.replace(/%/g, "/100"));
+    } catch {
+        display.innerHTML = "Error";
+    }
+}
+
+// Assign button functionality
+function zero() { appendToDisplay("0"); }
+function one() { appendToDisplay("1"); }
+function two() { appendToDisplay("2"); }
+function three() { appendToDisplay("3"); }
+function four() { appendToDisplay("4"); }
+function five() { appendToDisplay("5"); }
+function six() { appendToDisplay("6"); }
+function seven() { appendToDisplay("7"); }
+function eight() { appendToDisplay("8"); }
+function nine() { appendToDisplay("9"); }
+function dot() { 
+    if (!display.innerHTML.includes(".")) {
+        appendToDisplay(".");
+    }
+}
+function add() { appendToDisplay("+"); }
+function sub() { appendToDisplay("-"); }
+function mul() { appendToDisplay("*"); }
+function divide() { appendToDisplay("/"); }
+function percentage() { appendToDisplay("%"); }
+function zeroZero() { appendToDisplay("00"); }
+
+
+</script>
+
+</html>
